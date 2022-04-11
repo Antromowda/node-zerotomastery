@@ -2,8 +2,6 @@ const express = require('express');
 
 const app = express();
 
-// app.use(express.json());
-
 const PORT = 3000;
 
 const friends = [
@@ -22,7 +20,23 @@ app.use((req, res, next) =>{
 
   next();
   const delta = Date.now() - start;
-  console.log(`${req.method} ${req.url} ${delta}`);
+  console.log(`${req.method} ${req.url} ${delta}ms`);
+});
+
+app.use(express.json());
+
+app.post('/friends', (req, res) => {
+  if (!req.body.name) {
+    return res.status(400).json({ error: 'Name must be specified.' });
+  };
+
+  const newFriend = {
+    name: req.body.name,
+    id: friends.length,
+  };
+
+  friends.push(newFriend);
+  res.status(201).json(newFriend);
 });
 
 app.get('/friends', (req, res) => {
