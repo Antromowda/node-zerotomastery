@@ -1,1 +1,1 @@
-## [https://whimsical.com/nasa-mission-control-architectural-diagram-SJyESaCgY5HeSan4wTUjkt](Project Diagram)
+## [Project Diagram](https://whimsical.com/nasa-mission-control-architectural-diagram-SJyESaCgY5HeSan4wTUjkt)
